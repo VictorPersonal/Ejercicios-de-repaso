@@ -28,29 +28,34 @@ listaEstudiantes2=[]
 listaEstudiantes3=[]
 contadorH=0
 contadorM=0
-for estudiante in range(8):
-    nombre=input("Ingrese el nombre del estudiante: ")
+for estudiante in range(4):
+    nombre=input("Ingrese el nombre del estudiante: ").lower()
     edad=int(input("Ingrese la edad del estudiante: "))
-    sexo=input("Ingrese el sexo. Tenga en cuenta 'M'--> Masculino 'F'--> Femenino: ")
+    sexo=input("Ingrese el sexo. Tenga en cuenta 'M'--> Masculino 'F'--> Femenino: ").lower()
     nota=float(input("Ingrese la nota del alumno: "))
     estudianteGuardadoEnLista= Estudiante(nombre, edad, sexo, nota)
     
-    if estudiante < 4:
+    if estudiante <= 2:
         listaEstudiantes1.append(estudianteGuardadoEnLista)
     else:
         listaEstudiantes2.append(estudianteGuardadoEnLista)
     
-    for estudiante in listaEstudiantes1 and listaEstudiantes2:
-        if estudiante.getSexo() == 'M' and estudiante.getNota() >= 4.5:
+for estudiante in listaEstudiantes1 + listaEstudiantes2:
+    if estudiante.getNota() >= 4.5:
+        if estudiante.getSexo() == 'm':
             contadorM+=1
             listaEstudiantes3.append(estudianteGuardadoEnLista)
         
-        if estudiante.getSexo() == 'H' and estudiante.getNota() >= 4.5:
+        if estudiante.getSexo() == 'h':
             contadorH+=1
             listaEstudiantes3.append(estudianteGuardadoEnLista)
 
-    print("N° de estudiantes con sexo masculino con nota >= 4.5: ", contadorH)
-    print("N° de estudiantes con sexo femenino con nota >=4.5:", contadorM)
+for estudiante in listaEstudiantes3:
+    print("Estudiantes que lograron tener en notas >= 4.5 {}".format(estudiante.getNombre()))
+
+
+print("N° de estudiantes con sexo masculino con nota >= 4.5: ", contadorH)
+print("N° de estudiantes con sexo femenino con nota >=4.5:", contadorM)
 
 
 
