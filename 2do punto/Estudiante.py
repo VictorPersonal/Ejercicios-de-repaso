@@ -26,7 +26,7 @@ class Estudiante():
 listaEstudiantes1=[]
 listaEstudiantes2=[]
 listaEstudiantes3=[]
-contadorH=0
+contadorF=0
 contadorM=0
 for estudiante in range(4):
     nombre=input("Ingrese el nombre del estudiante: ").lower()
@@ -42,20 +42,21 @@ for estudiante in range(4):
     
 for estudiante in listaEstudiantes1 + listaEstudiantes2:
     if estudiante.getNota() >= 4.5:
-        if estudiante.getSexo() == 'm':
+        if estudiante.getSexo() == 'M':
             contadorM+=1
-            listaEstudiantes3.append(estudianteGuardadoEnLista)
-        
-        if estudiante.getSexo() == 'h':
-            contadorH+=1
-            listaEstudiantes3.append(estudianteGuardadoEnLista)
 
+        elif estudiante.getSexo() == 'F':
+            contadorF+=1
+        listaEstudiantes3.append(estudiante)
+
+
+print("Estudiantes que lograron tener notas >= 4.5:")
 for estudiante in listaEstudiantes3:
-    print("Estudiantes que lograron tener en notas >= 4.5 {}".format(estudiante.getNombre()))
+    print(estudiante.getNombre())
 
 
-print("N° de estudiantes con sexo masculino con nota >= 4.5: ", contadorH)
-print("N° de estudiantes con sexo femenino con nota >=4.5:", contadorM)
+print("N° de estudiantes con sexo masculino con nota >= 4.5: ", contadorM)
+print("N° de estudiantes con sexo femenino con nota >=4.5:", contadorF)
 
 
 
