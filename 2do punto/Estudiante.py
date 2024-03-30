@@ -23,40 +23,41 @@ class Estudiante():
     def setNota(self, nota):
         self.__nota=nota
 
-listaEstudiantes1=[]
-listaEstudiantes2=[]
-listaEstudiantes3=[]
-contadorF=0
-contadorM=0
-for estudiante in range(4):
-    nombre=input("Ingrese el nombre del estudiante: ").lower()
-    edad=int(input("Ingrese la edad del estudiante: "))
-    sexo=input("Ingrese el sexo. Tenga en cuenta 'M'--> Masculino 'F'--> Femenino: ").lower()
-    nota=float(input("Ingrese la nota del alumno: "))
-    estudianteGuardadoEnLista= Estudiante(nombre, edad, sexo, nota)
+listaEstudiantes1 = []
+listaEstudiantes2 = []
+listaEstudiantes3 = []
+contadorF = 0
+contadorM = 0
+
+for estudiante in range(8):
+    nombre = input("Ingrese el nombre del estudiante: ").lower()
+    edad = int(input("Ingrese la edad del estudiante: "))
+    sexo = input("Ingrese el sexo. Tenga en cuenta 'M'--> Masculino 'F'--> Femenino: ").lower()
+    nota = float(input("Ingrese la nota del alumno: "))
+    estudianteGuardadoEnLista = Estudiante(nombre, edad, sexo, nota)
     
-    if estudiante <= 2:
+    if estudiante <= 4:
         listaEstudiantes1.append(estudianteGuardadoEnLista)
     else:
         listaEstudiantes2.append(estudianteGuardadoEnLista)
     
 for estudiante in listaEstudiantes1 + listaEstudiantes2:
     if estudiante.getNota() >= 4.5:
-        if estudiante.getSexo() == 'M':
-            contadorM+=1
-
-        elif estudiante.getSexo() == 'F':
-            contadorF+=1
+        if estudiante.getSexo() == 'm':
+            contadorM += 1
+        elif estudiante.getSexo() == 'f':
+            contadorF += 1
         listaEstudiantes3.append(estudiante)
-
 
 print("Estudiantes que lograron tener notas >= 4.5:")
 for estudiante in listaEstudiantes3:
     print(estudiante.getNombre())
 
 
-print("N° de estudiantes con sexo masculino con nota >= 4.5: ", contadorM)
-print("N° de estudiantes con sexo femenino con nota >=4.5:", contadorF)
+print("N° de estudiantes con sexo masculino con nota >= 4.5:", contadorM)
+print("N° de estudiantes con sexo femenino con nota >= 4.5:", contadorF)
+
+
 
 
 
